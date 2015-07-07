@@ -1,0 +1,20 @@
+{
+    "bode": [
+        {
+                "MaBoDe": "BD1",
+				"TenBoDe": "Lớp 10"
+                
+        },
+        {
+                "MaBoDe": "BD2",
+				"TenBoDe": "Lớp 11"
+                
+        },
+        {
+                "MaBoDe": "BD3",
+				"TenBoDe": "Lớp 12"
+                
+        }
+        
+    ]
+}

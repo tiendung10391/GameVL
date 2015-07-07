@@ -1,0 +1,171 @@
+{
+    "ChonDapAn": [
+        {
+                "MaCH": "CH1",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức tính gia tốc của chuyển động thẳng biến đổi đều",
+				"DapAnDung": "ch1a",
+				"DapAnSai1": "ch1b",
+				"DapAnSai2": "ch1c",
+				"DapAnSai3": "ch1d",
+				"MoTa": "demo cau hoi 1"
+                
+        },
+        {
+                "MaCH": "CH2",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức tính quãng đường trong chuyển động thẳng biến đổi đều",
+				"DapAnDung": "ch2a",
+				"DapAnSai1": "ch2b",
+				"DapAnSai2": "ch2c",
+				"DapAnSai3": "ch2d",
+				"MoTa": "Đơn vị của công thức (m/s2)"
+                
+        },
+        {
+                "MaCH": "CH3",
+				"MaBoDe": "BD1",
+				"CauHoi": "Phương trình chuyển động thẳng biến đổi đều",
+				"DapAnDung": "ch3a",
+				"DapAnSai1": "ch3b",
+				"DapAnSai2": "ch3c",
+				"DapAnSai3": "ch3d",
+				"MoTa": "Lớp 10"
+                
+        },
+        {
+                "MaCH": "CH4",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức độc lập thời gian trong chuyển động thẳng biến đổi đều",
+				"DapAnDung": "ch4a",
+				"DapAnSai1": "ch4b",
+				"DapAnSai2": "ch4c",
+				"DapAnSai3": "ch4d",
+				"MoTa": "mo cau 4 "
+                
+        },
+        {
+                "MaCH": "CH5",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức tính vận tốc rơi tự do ",
+				"DapAnDung": "ch5a",
+				"DapAnSai1": "ch5b",
+				"DapAnSai2": "ch5c",
+				"DapAnSai3": "ch5d",
+				"MoTa": "mo cau 5 "
+                
+        },
+        {
+                "MaCH": "CH6",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức tính chiều cao quãng đường rơi tự do ",
+				"DapAnDung": "ch6a",
+				"DapAnSai1": "ch6b",
+				"DapAnSai2": "ch6c",
+				"DapAnSai3": "ch6d",
+				"MoTa": "mo cau 6 "
+                
+        },
+        {
+                "MaCH": "CH7",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức tính vận tốc trong chuyển động tròn đều ",
+				"DapAnDung": "ch7a",
+				"DapAnSai1": "ch7b",
+				"DapAnSai2": "ch7c",
+				"DapAnSai3": "ch7d",
+				"MoTa": "mo cau 7 "
+                
+        },
+        {
+                "MaCH": "CH8",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức tính vận tốc trong chuyển động tròn đều ",
+				"DapAnDung": "ch8a",
+				"DapAnSai1": "ch8b",
+				"DapAnSai2": "ch8c",
+				"DapAnSai3": "ch8d",
+				"MoTa": "mo cau 8 "
+                
+        },
+        {
+                "MaCH": "CH9",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức tính vận tốc trong chuyển động tròn đều ",
+				"DapAnDung": "ch9a",
+				"DapAnSai1": "ch9b",
+				"DapAnSai2": "ch9c",
+				"DapAnSai3": "ch9d",
+				"MoTa": "mo cau 9 "
+                
+        },
+        {
+                "MaCH": "CH10",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức tính vận tốc trong chuyển động tròn đều ",
+				"DapAnDung": "ch10a",
+				"DapAnSai1": "ch10b",
+				"DapAnSai2": "ch10c",
+				"DapAnSai3": "ch10d",
+				"MoTa": "mo cau 10 "
+                
+        },
+        {
+                "MaCH": "CH11",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức tính vận tốc trong chuyển động tròn đều ",
+				"DapAnDung": "ch11a",
+				"DapAnSai1": "ch11b",
+				"DapAnSai2": "ch11c",
+				"DapAnSai3": "ch11d",
+				"MoTa": "mo cau 11 "
+                
+        },
+        {
+                "MaCH": "CH12",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức tính tần số trong chuyển động tròn đều ",
+				"DapAnDung": "ch12a",
+				"DapAnSai1": "ch12b",
+				"DapAnSai2": "ch12c",
+				"DapAnSai3": "ch12d",
+				"MoTa": "mo cau 12 "
+                
+        },
+        {
+                "MaCH": "CH13",
+				"MaBoDe": "BD1",
+				"CauHoi": "Công thức tính độ lớn của gia tốc hướng tâm trong chuyển động tròn đều ",
+				"DapAnDung": "ch13a",
+				"DapAnSai1": "ch13b",
+				"DapAnSai2": "ch13c",
+				"DapAnSai3": "ch13d",
+				"MoTa": "mo cau 13 "
+                
+        },
+        {
+                "MaCH": "CH14",
+				"MaBoDe": "BD1",
+				"CauHoi": "Định luật 2 Niu-tơn ",
+				"DapAnDung": "ch14a",
+				"DapAnSai1": "ch14b",
+				"DapAnSai2": "ch14c",
+				"DapAnSai3": "ch14d",
+				"MoTa": "mo cau 14 "
+                
+        },
+        {
+                "MaCH": "CH15",
+				"MaBoDe": "BD1",
+				"CauHoi": "Định luật 3 Niu-tơn ",
+				"DapAnDung": "ch15a",
+				"DapAnSai1": "ch15b",
+				"DapAnSai2": "ch15c",
+				"DapAnSai3": "ch15d",
+				"MoTa": "mo cau 15 "
+                
+        }
+        
+        
+    ]
+}
