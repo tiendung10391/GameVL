@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp" >
+        android:padding="10dp" >
 
         <ImageView
             android:id="@+id/imageView1"
@@ -23,10 +23,10 @@
         <RelativeLayout
             android:id="@+id/relativeLayout1"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/heightButtonLarge"
+            android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/imageView1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/border_button" >
 
             <TextView
@@ -35,18 +35,17 @@
                 android:layout_height="fill_parent"
                 android:gravity="center"
                 android:text="@string/ChonCongThuc"
-                android:textSize="@dimen/menuSizeLarge"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/button" />
+                android:textColor="@color/button"
+                android:textSize="@dimen/menuSizeSmall" />
         </RelativeLayout>
-        
+
         <RelativeLayout
             android:id="@+id/relativeLayout8"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/heightButtonLarge"
+            android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/relativeLayout1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/border_button" >
 
             <TextView
@@ -55,18 +54,17 @@
                 android:layout_height="fill_parent"
                 android:gravity="center"
                 android:text="@string/VietCongThuc"
-                android:textSize="@dimen/menuSizeLarge"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="@dimen/menuSizeSmall"
                 android:textColor="@color/button" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/relativeLayout2"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/heightButtonLarge"
+            android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/relativeLayout8"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/border_button" >
 
             <TextView
@@ -75,18 +73,17 @@
                 android:layout_height="fill_parent"
                 android:gravity="center"
                 android:text="@string/CongThucMenu"
-                android:textSize="@dimen/menuSizeLarge"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="@dimen/menuSizeSmall"
                 android:textColor="@color/button" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/relativeLayout3"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/heightButtonLarge"
+            android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/relativeLayout2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/border_button" >
 
             <TextView
@@ -95,18 +92,17 @@
                 android:layout_height="fill_parent"
                 android:gravity="center"
                 android:text="@string/CaiDatMenu"
-                android:textSize="@dimen/menuSizeLarge"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="@dimen/menuSizeSmall"
                 android:textColor="@color/button" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/relativeLayout4"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/heightButtonLarge"
+            android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/relativeLayout3"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/border_button" >
 
             <TextView
@@ -115,29 +111,26 @@
                 android:layout_height="fill_parent"
                 android:gravity="center"
                 android:text="@string/DiemCao"
-                android:textSize="@dimen/menuSizeLarge"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="@dimen/menuSizeSmall"
                 android:textColor="@color/button" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/heightButtonLarge"
+            android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/relativeLayout4"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/border_button"
-            android:layout_marginTop="15dp" >
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border_button" >
 
             <TextView
                 android:id="@+id/tvGioiThieu"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="@string/GioiThieu"
-                android:textSize="@dimen/menuSizeLarge"
                 android:gravity="center"
-                android:textColor="@color/button"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
+                android:text="@string/GioiThieu"
+                android:textSize="@dimen/menuSizeSmall"
+                android:textColor="@color/button" />
         </RelativeLayout>
     </RelativeLayout>
 

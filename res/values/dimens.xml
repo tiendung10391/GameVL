@@ -2,10 +2,17 @@
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="heightButton">60dp</dimen>
+    <dimen name="heightButtonSmall">55dp</dimen>
+    <dimen name="heightButtonLarge">80dp</dimen>
+    <dimen name="menuSizeLarge">26sp</dimen>
+    <dimen name="menuSizeSmall">18sp</dimen>
 	<dimen name="paddingButton">15dp</dimen>
 	<dimen name="heightHeader">40dp</dimen>
 	<dimen name="heightLayoutDapAn">55dp</dimen>
+	<dimen name="heightLayoutDapAnLarge">85dp</dimen>
 	<dimen name="heightImgDapAn">35dp</dimen>
+	<dimen name="heightImgDapAnLarge">45dp</dimen>
 	<dimen name="iconTroGiup">50dp</dimen>
+	<dimen name="iconTroGiupLarge">70dp</dimen>
 	
 </resources>
