@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blurbackground" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40dp" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="90dp"
+            android:padding="10dp"
+            android:background="@drawable/background_question" >
+
+            <TextView
+                android:id="@+id/tvCauHoi"
+                android:layout_width="fill_parent"
+                android:layout_height="170dp"
+                android:gravity="center"
+                android:text="Công thức tính vận tốc ?"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/heightLayoutDapAn"
+            android:layout_below="@+id/relativeLayout1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_dapan"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/imvCau1"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/heightImgDapAn"
+                android:src="@drawable/ch1a" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/heightLayoutDapAn"
+            android:layout_below="@+id/relativeLayout2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/background_dapan"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/imvCau2"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/heightImgDapAn"
+                android:src="@drawable/ch1b" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/heightLayoutDapAn"
+            android:layout_below="@+id/relativeLayout3"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/background_dapan" >
+
+            <ImageView
+                android:id="@+id/imvCau3"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/heightImgDapAn"
+                android:src="@drawable/ch1c" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/heightLayoutDapAn"
+            android:layout_below="@+id/relativeLayout4"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:background="@drawable/background_dapan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" >
+
+            <ImageView
+                android:id="@+id/imvCau4"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/heightImgDapAn"
+                android:src="@drawable/ch1d" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvNumberQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="Câu 1"
+            android:textSize="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/trogiup1" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignRight="@+id/relativeLayout1"
+            android:layout_alignTop="@+id/imageView1"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="30dp"
+            android:src="@drawable/trogiup2" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignLeft="@+id/relativeLayout1"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/trogiup3" />
+
+    </RelativeLayout>
+
+</FrameLayout>
