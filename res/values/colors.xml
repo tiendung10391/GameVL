@@ -5,4 +5,6 @@
     <color name="text">#363636</color>
     <color name="transparent_color">#00000000</color>
     <color name="maubang">#106a4e</color>
+    <color name="questionTrue">#426EB4</color>
+    <color name="questionFalse">#B2001F</color>
 </resources>

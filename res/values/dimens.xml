@@ -4,7 +4,8 @@
     <dimen name="heightButton">60dp</dimen>
 	<dimen name="paddingButton">15dp</dimen>
 	<dimen name="heightHeader">40dp</dimen>
-	<dimen name="heightLayoutDapAn">70dp</dimen>
-	<dimen name="heightImgDapAn">55dp</dimen>
+	<dimen name="heightLayoutDapAn">55dp</dimen>
+	<dimen name="heightImgDapAn">35dp</dimen>
+	<dimen name="iconTroGiup">50dp</dimen>
 	
 </resources>
