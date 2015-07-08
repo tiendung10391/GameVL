@@ -10,6 +10,7 @@ import java.util.Random;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -43,6 +44,8 @@ public class chonDapAn extends Activity {
 
 	private ArrayList<chonDapAnEntity> arrQuetion;
 	DatabaseHandler db;
+	private String preName = "my_data";
+	SharedPreferences pre;
 	private String arrIdQuetion[];
 	String DapAnDung = "";
 	private ArrayList<String> AnserAfterRandom;
@@ -83,7 +86,7 @@ public class chonDapAn extends Activity {
 		layoutCau4 = (RelativeLayout) findViewById(R.id.layoutCau4);
 
 		db = new DatabaseHandler(this);
-
+		pre = getSharedPreferences(preName, MODE_PRIVATE);
 	}
 
 	public void getQuestion() {
@@ -390,8 +393,38 @@ public class chonDapAn extends Activity {
 		TextView tvDiem = (TextView) view.findViewById(R.id.tvDiemGame1);
 		TextView tvThoiGian = (TextView) view
 				.findViewById(R.id.tvThoiGianGame1);
+		ImageView imvFinish = (ImageView) view
+				.findViewById(R.id.imvFinishGame1);
 		tvDiem.setText(String.valueOf(Diem));
 		tvThoiGian.setText(String.valueOf(ThoiGian) + "s");
+
+		int diemLuu = pre.getInt("diem", 0);
+		int thoiGianLuu = pre.getInt("thoigian", 0);
+
+		if (diemLuu < Diem) {
+			// luu diem
+			imvFinish.setBackgroundResource(R.drawable.winner);
+			SharedPreferences.Editor editor = pre.edit();
+			editor.putInt("diem", Diem);
+			editor.putInt("thoigian", ThoiGian);
+			editor.commit();
+		} else if (diemLuu == Diem) {
+			if (thoiGianLuu > ThoiGian) {
+				// luu diem
+				imvFinish.setBackgroundResource(R.drawable.winner);
+				imvFinish.setBackgroundResource(R.drawable.winner);
+				SharedPreferences.Editor editor = pre.edit();
+				editor.putInt("diem", Diem);
+				editor.putInt("thoigian", ThoiGian);
+				editor.commit();
+			} else {
+				// hien thi hinh sao
+				imvFinish.setBackgroundResource(R.drawable.lost);
+			}
+		} else {
+			// hien thi hinh sao
+			imvFinish.setBackgroundResource(R.drawable.lost);
+		}
 
 		btClose.setOnClickListener(new OnClickListener() {
 

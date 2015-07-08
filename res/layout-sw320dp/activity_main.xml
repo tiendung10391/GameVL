@@ -26,13 +26,13 @@
             android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/imageView1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/border_button" >
+            android:layout_marginTop="15dp" >
 
             <TextView
                 android:id="@+id/tvChonCongThuc"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
                 android:text="@string/ChonCongThuc"
                 android:textColor="@color/button"
@@ -45,17 +45,17 @@
             android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/relativeLayout1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border_button" >
+            android:layout_marginTop="10dp" >
 
             <TextView
                 android:id="@+id/tvVietCongThuc"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
                 android:text="@string/VietCongThuc"
-                android:textSize="@dimen/menuSizeSmall"
-                android:textColor="@color/button" />
+                android:textColor="@color/button"
+                android:textSize="@dimen/menuSizeSmall" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -64,17 +64,17 @@
             android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/relativeLayout8"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border_button" >
+            android:layout_marginTop="10dp" >
 
             <TextView
                 android:id="@+id/tvCongThuc"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
                 android:text="@string/CongThucMenu"
-                android:textSize="@dimen/menuSizeSmall"
-                android:textColor="@color/button" />
+                android:textColor="@color/button"
+                android:textSize="@dimen/menuSizeSmall" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -83,17 +83,17 @@
             android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/relativeLayout2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border_button" >
+            android:layout_marginTop="10dp" >
 
             <TextView
                 android:id="@+id/tvCaiDat"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
                 android:text="@string/CaiDatMenu"
-                android:textSize="@dimen/menuSizeSmall"
-                android:textColor="@color/button" />
+                android:textColor="@color/button"
+                android:textSize="@dimen/menuSizeSmall" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -102,17 +102,17 @@
             android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/relativeLayout3"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border_button" >
+            android:layout_marginTop="10dp" >
 
             <TextView
                 android:id="@+id/tvDiemCao"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
                 android:text="@string/DiemCao"
-                android:textSize="@dimen/menuSizeSmall"
-                android:textColor="@color/button" />
+                android:textColor="@color/button"
+                android:textSize="@dimen/menuSizeSmall" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -120,17 +120,17 @@
             android:layout_height="@dimen/heightButtonSmall"
             android:layout_below="@+id/relativeLayout4"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border_button" >
+            android:layout_marginTop="10dp" >
 
             <TextView
                 android:id="@+id/tvGioiThieu"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
                 android:text="@string/GioiThieu"
-                android:textSize="@dimen/menuSizeSmall"
-                android:textColor="@color/button" />
+                android:textColor="@color/button"
+                android:textSize="@dimen/menuSizeSmall" />
         </RelativeLayout>
     </RelativeLayout>
 
