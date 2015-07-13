@@ -1,16 +1,21 @@
 package itpsoft.app.gamevl;
 
 import itpsoft.app.gamevl.database.DatabaseHandler;
+import itpsoft.app.gamevl.entity.BoDeEntity;
 import itpsoft.app.gamevl.entity.chonDapAnEntity;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -19,14 +24,12 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class chonDapAn extends Activity {
 	private CountDownTimer countDownTimer;
@@ -38,6 +41,10 @@ public class chonDapAn extends Activity {
 	private LinearLayout m_main;
 	private int numberQuestion = 1;
 	private TextView tvNumerQuestion;
+
+	private MediaPlayer mpMusic;
+	private AudioManager amMusic;
+	private int curVolumeSound = 0;
 
 	private final long startTime = 15 * 1000;
 	private final long interval = 1 * 1000;
@@ -87,6 +94,9 @@ public class chonDapAn extends Activity {
 
 		db = new DatabaseHandler(this);
 		pre = getSharedPreferences(preName, MODE_PRIVATE);
+		amMusic = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+		int VolumnSound = pre.getInt("VolumnSound", 10);
+		amMusic.setStreamVolume(AudioManager.STREAM_MUSIC, VolumnSound, 0);
 	}
 
 	public void getQuestion() {
@@ -100,7 +110,18 @@ public class chonDapAn extends Activity {
 				check50 = false;
 			}
 			// random cau hoi
-			arrQuetion = db.getAllChonCauHoi();
+			int idBoDe = pre.getInt("idDe", 0);
+			if(idBoDe == 3){
+				arrQuetion = db.getAllChonCauHoi();
+			}else{
+				ArrayList<BoDeEntity> arrBoDe = db.getAllBoDe();
+				String MaBD = arrBoDe.get(idBoDe).getMaBoDe();
+				arrQuetion = db.getAllChonCauHoiTheoLop(MaBD);
+			}
+			
+			
+			
+			
 			int randomId = getIDQuestion(arrQuetion.size());
 			tvCauHoi.setText(arrQuetion.get(randomId).getCauHoi());
 
@@ -154,6 +175,8 @@ public class chonDapAn extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				mpMusic = MediaPlayer.create(getApplicationContext(), R.raw.support);
+				mpMusic.start();
 				countDownTimer.cancel();
 				countDownTimer.start();
 				getQuestion();
@@ -181,6 +204,8 @@ public class chonDapAn extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				mpMusic = MediaPlayer.create(getApplicationContext(), R.raw.support);
+				mpMusic.start();
 				AlphaAnimation fade_out = new AlphaAnimation(1.0f, 0.0f);
 				fade_out.setDuration(500);
 				fade_out.setAnimationListener(new AnimationListener() {
@@ -236,6 +261,8 @@ public class chonDapAn extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				mpMusic = MediaPlayer.create(getApplicationContext(), R.raw.support);
+				mpMusic.start();
 				checkTroGiupX2 = true;
 				AlphaAnimation fade_out = new AlphaAnimation(1.0f, 0.0f);
 				fade_out.setDuration(500);
@@ -340,10 +367,15 @@ public class chonDapAn extends Activity {
 			numberQuestion++;
 			getQuestion();
 			checkTroGiupX2 = false;
+			mpMusic = MediaPlayer.create(getApplicationContext(), R.raw.mtrue);
+			mpMusic.start();
 			return true;
 		} else {
 			if (checkTroGiupX2) {
 				checkTroGiupX2 = false;
+				mpMusic = MediaPlayer.create(getApplicationContext(),
+						R.raw.mfalse);
+				mpMusic.start();
 				return false;
 			} else {
 				for (int j = 0; j < 4; j++) {
@@ -372,7 +404,9 @@ public class chonDapAn extends Activity {
 					}
 				}
 				dialogDiemCao();
-
+				mpMusic = MediaPlayer.create(getApplicationContext(),
+						R.raw.mfalse);
+				mpMusic.start();
 				return false;
 			}
 		}
@@ -396,17 +430,30 @@ public class chonDapAn extends Activity {
 		ImageView imvFinish = (ImageView) view
 				.findViewById(R.id.imvFinishGame1);
 		tvDiem.setText(String.valueOf(Diem));
-		tvThoiGian.setText(String.valueOf(ThoiGian) + "s");
 
-		int diemLuu = pre.getInt("diem", 0);
-		int thoiGianLuu = pre.getInt("thoigian", 0);
+		String thoigian = "";
+		if (ThoiGian > 60) {
+			thoigian = String.format(
+					"%dp %ds",
+					TimeUnit.MILLISECONDS.toMinutes(ThoiGian * 1000),
+					TimeUnit.MILLISECONDS.toSeconds(ThoiGian * 1000)
+							- TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS
+									.toMinutes(ThoiGian * 1000)));
+		} else {
+			thoigian = ThoiGian + " s";
+		}
+
+		tvThoiGian.setText(thoigian);
+
+		int diemLuu = pre.getInt("diemCT", 0);
+		int thoiGianLuu = pre.getInt("thoigianCT", 0);
 
 		if (diemLuu < Diem) {
 			// luu diem
 			imvFinish.setBackgroundResource(R.drawable.winner);
 			SharedPreferences.Editor editor = pre.edit();
-			editor.putInt("diem", Diem);
-			editor.putInt("thoigian", ThoiGian);
+			editor.putInt("diemCT", Diem);
+			editor.putInt("thoigianCT", ThoiGian);
 			editor.commit();
 		} else if (diemLuu == Diem) {
 			if (thoiGianLuu > ThoiGian) {
@@ -414,8 +461,8 @@ public class chonDapAn extends Activity {
 				imvFinish.setBackgroundResource(R.drawable.winner);
 				imvFinish.setBackgroundResource(R.drawable.winner);
 				SharedPreferences.Editor editor = pre.edit();
-				editor.putInt("diem", Diem);
-				editor.putInt("thoigian", ThoiGian);
+				editor.putInt("diemCT", Diem);
+				editor.putInt("thoigianCT", ThoiGian);
 				editor.commit();
 			} else {
 				// hien thi hinh sao
@@ -559,6 +606,25 @@ public class chonDapAn extends Activity {
 		Random rand = new Random();
 		int index = rand.nextInt(size);
 		return index;
+	}
+	
+	protected void onPause() {
+		super.onPause();
+
+		mpMusic.pause();
+		// mp.release();
+		
+		int volume_level = pre.getInt("VoluomnHeThong", 10);
+		amMusic.setStreamVolume(AudioManager.STREAM_MUSIC, volume_level, 0);
+	}
+
+	protected void onResume() {
+		super.onResume();
+
+		int VolumnSound = pre.getInt("VolumnSound", 10);
+		amMusic.setStreamVolume(AudioManager.STREAM_MUSIC, VolumnSound, 0);
+		mpMusic.start();
+
 	}
 
 }

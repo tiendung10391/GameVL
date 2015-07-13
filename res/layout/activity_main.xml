@@ -33,7 +33,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center"
-                android:text="@string/ChonCongThuc"
+                android:text="@string/TNCongThuc"
             android:background="@drawable/background_selector_menu"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/button" />
@@ -52,7 +52,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center"
-                android:text="@string/VietCongThuc"
+                android:text="@string/TNLyThuyet"
             android:background="@drawable/background_selector_menu"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/button" />
@@ -71,7 +71,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center"
-                android:text="@string/CongThucMenu"
+                android:text="@string/MenuThachDau"
             android:background="@drawable/background_selector_menu"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/button" />

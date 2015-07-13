@@ -3,7 +3,7 @@
         {
                 "MaCH": "CH1",
 				"MaBoDe": "BD1",
-				"CauHoi": "Công thức tính gia tốc của chuyển động thẳng biến đổi đều",
+				"CauHoi": "CÃ´ng thá»©c tÃ­nh gia tá»‘c cá»§a chuyá»ƒn Ä‘á»™ng tháº³ng biáº¿n Ä‘á»•i Ä‘á»�u",
 				"DapAnDung": "ch1a",
 				"DapAnSai1": "ch1b",
 				"DapAnSai2": "ch1c",
@@ -13,30 +13,30 @@
         },
         {
                 "MaCH": "CH2",
-				"MaBoDe": "BD1",
-				"CauHoi": "Công thức tính quãng đường trong chuyển động thẳng biến đổi đều",
+				"MaBoDe": "BD2",
+				"CauHoi": "CÃ´ng thá»©c tÃ­nh quÃ£ng Ä‘Æ°á»�ng trong chuyá»ƒn Ä‘á»™ng tháº³ng biáº¿n Ä‘á»•i Ä‘á»�u",
 				"DapAnDung": "ch2a",
 				"DapAnSai1": "ch2b",
 				"DapAnSai2": "ch2c",
 				"DapAnSai3": "ch2d",
-				"MoTa": "Đơn vị của công thức (m/s2)"
+				"MoTa": "Ä�Æ¡n vá»‹ cá»§a cÃ´ng thá»©c (m/s2)"
                 
         },
         {
                 "MaCH": "CH3",
-				"MaBoDe": "BD1",
-				"CauHoi": "Phương trình chuyển động thẳng biến đổi đều",
+				"MaBoDe": "BD3",
+				"CauHoi": "PhÆ°Æ¡ng trÃ¬nh chuyá»ƒn Ä‘á»™ng tháº³ng biáº¿n Ä‘á»•i Ä‘á»�u",
 				"DapAnDung": "ch3a",
 				"DapAnSai1": "ch3b",
 				"DapAnSai2": "ch3c",
 				"DapAnSai3": "ch3d",
-				"MoTa": "Lớp 10"
+				"MoTa": "Lá»›p 10"
                 
         },
         {
                 "MaCH": "CH4",
 				"MaBoDe": "BD1",
-				"CauHoi": "Công thức độc lập thời gian trong chuyển động thẳng biến đổi đều",
+				"CauHoi": "CÃ´ng thá»©c Ä‘á»™c láº­p thá»�i gian trong chuyá»ƒn Ä‘á»™ng tháº³ng biáº¿n Ä‘á»•i Ä‘á»�u",
 				"DapAnDung": "ch4a",
 				"DapAnSai1": "ch4b",
 				"DapAnSai2": "ch4c",
@@ -47,7 +47,7 @@
         {
                 "MaCH": "CH5",
 				"MaBoDe": "BD1",
-				"CauHoi": "Công thức tính vận tốc rơi tự do ",
+				"CauHoi": "CÃ´ng thá»©c tÃ­nh váº­n tá»‘c rÆ¡i tá»± do ",
 				"DapAnDung": "ch5a",
 				"DapAnSai1": "ch5b",
 				"DapAnSai2": "ch5c",
@@ -58,7 +58,7 @@
         {
                 "MaCH": "CH6",
 				"MaBoDe": "BD1",
-				"CauHoi": "Công thức tính chiều cao quãng đường rơi tự do ",
+				"CauHoi": "CÃ´ng thá»©c tÃ­nh chiá»�u cao quÃ£ng Ä‘Æ°á»�ng rÆ¡i tá»± do ",
 				"DapAnDung": "ch6a",
 				"DapAnSai1": "ch6b",
 				"DapAnSai2": "ch6c",
@@ -69,7 +69,7 @@
         {
                 "MaCH": "CH7",
 				"MaBoDe": "BD1",
-				"CauHoi": "Công thức tính vận tốc trong chuyển động tròn đều ",
+				"CauHoi": "CÃ´ng thá»©c tÃ­nh váº­n tá»‘c trong chuyá»ƒn Ä‘á»™ng trÃ²n Ä‘á»�u ",
 				"DapAnDung": "ch7a",
 				"DapAnSai1": "ch7b",
 				"DapAnSai2": "ch7c",
@@ -80,7 +80,7 @@
         {
                 "MaCH": "CH8",
 				"MaBoDe": "BD1",
-				"CauHoi": "Công thức tính vận tốc trong chuyển động tròn đều ",
+				"CauHoi": "CÃ´ng thá»©c tÃ­nh váº­n tá»‘c trong chuyá»ƒn Ä‘á»™ng trÃ²n Ä‘á»�u ",
 				"DapAnDung": "ch8a",
 				"DapAnSai1": "ch8b",
 				"DapAnSai2": "ch8c",
@@ -91,7 +91,7 @@
         {
                 "MaCH": "CH9",
 				"MaBoDe": "BD1",
-				"CauHoi": "Công thức tính vận tốc trong chuyển động tròn đều ",
+				"CauHoi": "CÃ´ng thá»©c tÃ­nh váº­n tá»‘c trong chuyá»ƒn Ä‘á»™ng trÃ²n Ä‘á»�u ",
 				"DapAnDung": "ch9a",
 				"DapAnSai1": "ch9b",
 				"DapAnSai2": "ch9c",
@@ -102,7 +102,7 @@
         {
                 "MaCH": "CH10",
 				"MaBoDe": "BD1",
-				"CauHoi": "Công thức tính vận tốc trong chuyển động tròn đều ",
+				"CauHoi": "CÃ´ng thá»©c tÃ­nh váº­n tá»‘c trong chuyá»ƒn Ä‘á»™ng trÃ²n Ä‘á»�u ",
 				"DapAnDung": "ch10a",
 				"DapAnSai1": "ch10b",
 				"DapAnSai2": "ch10c",
@@ -113,7 +113,7 @@
         {
                 "MaCH": "CH11",
 				"MaBoDe": "BD1",
-				"CauHoi": "Công thức tính vận tốc trong chuyển động tròn đều ",
+				"CauHoi": "CÃ´ng thá»©c tÃ­nh váº­n tá»‘c trong chuyá»ƒn Ä‘á»™ng trÃ²n Ä‘á»�u ",
 				"DapAnDung": "ch11a",
 				"DapAnSai1": "ch11b",
 				"DapAnSai2": "ch11c",
@@ -124,7 +124,7 @@
         {
                 "MaCH": "CH12",
 				"MaBoDe": "BD1",
-				"CauHoi": "Công thức tính tần số trong chuyển động tròn đều ",
+				"CauHoi": "CÃ´ng thá»©c tÃ­nh táº§n sá»‘ trong chuyá»ƒn Ä‘á»™ng trÃ²n Ä‘á»�u ",
 				"DapAnDung": "ch12a",
 				"DapAnSai1": "ch12b",
 				"DapAnSai2": "ch12c",
@@ -135,7 +135,7 @@
         {
                 "MaCH": "CH13",
 				"MaBoDe": "BD1",
-				"CauHoi": "Công thức tính độ lớn của gia tốc hướng tâm trong chuyển động tròn đều ",
+				"CauHoi": "CÃ´ng thá»©c tÃ­nh Ä‘á»™ lá»›n cá»§a gia tá»‘c hÆ°á»›ng tÃ¢m trong chuyá»ƒn Ä‘á»™ng trÃ²n Ä‘á»�u ",
 				"DapAnDung": "ch13a",
 				"DapAnSai1": "ch13b",
 				"DapAnSai2": "ch13c",
@@ -146,7 +146,7 @@
         {
                 "MaCH": "CH14",
 				"MaBoDe": "BD1",
-				"CauHoi": "Định luật 2 Niu-tơn ",
+				"CauHoi": "Ä�á»‹nh luáº­t 2 Niu-tÆ¡n ",
 				"DapAnDung": "ch14a",
 				"DapAnSai1": "ch14b",
 				"DapAnSai2": "ch14c",
@@ -157,7 +157,7 @@
         {
                 "MaCH": "CH15",
 				"MaBoDe": "BD1",
-				"CauHoi": "Định luật 3 Niu-tơn ",
+				"CauHoi": "Ä�á»‹nh luáº­t 3 Niu-tÆ¡n ",
 				"DapAnDung": "ch15a",
 				"DapAnSai1": "ch15b",
 				"DapAnSai2": "ch15c",

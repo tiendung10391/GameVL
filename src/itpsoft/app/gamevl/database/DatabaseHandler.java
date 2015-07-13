@@ -53,15 +53,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		// tao bang chon cau hoi
 
 		String CREATE_TABLE_CHONCAUHOI = "CREATE TABLE " + TABLE_CHONCAUHOI
-				+ "(" + KEY_ID_CHONCAUHOI + " INTEGER PRIMARY KEY AUTOINCREMENT," 
-				+ KEY_CHONCAUHOI_MACH + " TEXT," 
-				+ KEY_CHONCAUHOI_MABODE	+ " TEXT,"
-				+ KEY_CHONCAUHOI_CAUHOI + " TEXT," 
-				+ KEY_CHONCAUHOI_DAPANDUNG	+ " TEXT," 
-				+ KEY_CHONCAUHOI_DAPANSAI1 + " TEXT,"
+				+ "(" + KEY_ID_CHONCAUHOI
+				+ " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_CHONCAUHOI_MACH
+				+ " TEXT," + KEY_CHONCAUHOI_MABODE + " TEXT,"
+				+ KEY_CHONCAUHOI_CAUHOI + " TEXT," + KEY_CHONCAUHOI_DAPANDUNG
+				+ " TEXT," + KEY_CHONCAUHOI_DAPANSAI1 + " TEXT,"
 				+ KEY_CHONCAUHOI_DAPANSAI2 + " TEXT,"
-				+ KEY_CHONCAUHOI_DAPANSAI3 + " TEXT," 
-				+ KEY_CHONCAUHOI_MOTA + " TEXT" + ")";
+				+ KEY_CHONCAUHOI_DAPANSAI3 + " TEXT," + KEY_CHONCAUHOI_MOTA
+				+ " TEXT" + ")";
 
 		db.execSQL(CREATE_TABLE_BODE);
 		db.execSQL(CREATE_TABLE_CHONCAUHOI);
@@ -98,9 +97,36 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return id;
 	}
 
+	// chon cau hoi theo bo de tong hop
 	public ArrayList<chonDapAnEntity> getAllChonCauHoi() {
 		ArrayList<chonDapAnEntity> ChonDapAnList = new ArrayList<chonDapAnEntity>();
 		String selectQuery = "SELECT * FROM " + TABLE_CHONCAUHOI;
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(selectQuery, null);
+		if (cursor.moveToFirst()) {
+			do {
+				chonDapAnEntity ch = new chonDapAnEntity();
+				ch.setId(Integer.parseInt(cursor.getString(0)));
+				ch.setMaCH(cursor.getString(1));
+				ch.setMaBoDe(cursor.getString(2));
+				ch.setCauHoi(cursor.getString(3));
+				ch.setDapAnDung(cursor.getString(4));
+				ch.setDapAnSai1(cursor.getString(5));
+				ch.setDapAnSai2(cursor.getString(6));
+				ch.setDapAnSai3(cursor.getString(7));
+				ch.setMoTa(cursor.getString(8));
+				ChonDapAnList.add(ch);
+			} while (cursor.moveToNext());
+		}
+
+		return ChonDapAnList;
+	}
+
+	// chon cau hoi theo bo de
+	public ArrayList<chonDapAnEntity> getAllChonCauHoiTheoLop(String MaBD) {
+		ArrayList<chonDapAnEntity> ChonDapAnList = new ArrayList<chonDapAnEntity>();
+		String selectQuery = "SELECT * FROM " + TABLE_CHONCAUHOI + " WHERE "
+				+ KEY_CHONCAUHOI_MABODE + " = '" + MaBD + "'";
 		SQLiteDatabase db = this.getWritableDatabase();
 		Cursor cursor = db.rawQuery(selectQuery, null);
 		if (cursor.moveToFirst()) {
@@ -147,9 +173,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return id;
 
 	}
-	
-	// ///////////////////////// BO DE  ///////////////////////////////
 
+	// ///////////////////////// BO DE ///////////////////////////////
 
 	public int getID_BODE() throws Exception {
 		SQLiteDatabase db = null;
@@ -173,42 +198,41 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return id;
 	}
 
-		public ArrayList<BoDeEntity> getAllBoDe() {
-			ArrayList<BoDeEntity> BoDeList = new ArrayList<BoDeEntity>();
-			String selectQuery = "SELECT * FROM " + TABLE_BODE;
-			SQLiteDatabase db = this.getWritableDatabase();
-			Cursor cursor = db.rawQuery(selectQuery, null);
-			if (cursor.moveToFirst()) {
-				do {
-					BoDeEntity bd = new BoDeEntity();
-					bd.setIdBoDo(Integer.parseInt(cursor.getString(0)));
-					bd.setMaBoDe(cursor.getString(1));
-					bd.setTenBoDe(cursor.getString(2));
-					BoDeList.add(bd);
-				} while (cursor.moveToNext());
-			}
-
-			return BoDeList;
+	public ArrayList<BoDeEntity> getAllBoDe() {
+		ArrayList<BoDeEntity> BoDeList = new ArrayList<BoDeEntity>();
+		String selectQuery = "SELECT * FROM " + TABLE_BODE;
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(selectQuery, null);
+		if (cursor.moveToFirst()) {
+			do {
+				BoDeEntity bd = new BoDeEntity();
+				bd.setIdBoDo(Integer.parseInt(cursor.getString(0)));
+				bd.setMaBoDe(cursor.getString(1));
+				bd.setTenBoDe(cursor.getString(2));
+				BoDeList.add(bd);
+			} while (cursor.moveToNext());
 		}
 
-		public int addBoDe(BoDeEntity bd) throws Exception {
-			SQLiteDatabase db = null;
-			int id = 0;
-			try {
-				db = this.getWritableDatabase();
-				ContentValues values = new ContentValues();
-				values.put(KEY_MA_BODE, bd.getMaBoDe());
-				values.put(KEY_TENBODE, bd.getTenBoDe());
-				db.insert(TABLE_BODE, null, values);
-				id = getID_BODE();
-			} catch (Exception ex) {
-				throw new Exception(ex.getMessage());
-			} finally {
-				db.close();
-			}
+		return BoDeList;
+	}
 
-			return id;
-
+	public int addBoDe(BoDeEntity bd) throws Exception {
+		SQLiteDatabase db = null;
+		int id = 0;
+		try {
+			db = this.getWritableDatabase();
+			ContentValues values = new ContentValues();
+			values.put(KEY_MA_BODE, bd.getMaBoDe());
+			values.put(KEY_TENBODE, bd.getTenBoDe());
+			db.insert(TABLE_BODE, null, values);
+			id = getID_BODE();
+		} catch (Exception ex) {
+			throw new Exception(ex.getMessage());
+		} finally {
+			db.close();
 		}
+
+		return id;
+
+	}
 }
-

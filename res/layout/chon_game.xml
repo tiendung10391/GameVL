@@ -57,7 +57,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="@string/ChonCongThuc"
+                android:text="@string/TNCongThuc"
                 android:gravity="center"
                 android:textColor="@color/button"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -74,7 +74,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="@string/VietCongThuc"
+                android:text="@string/TNLyThuyet"
                 android:gravity="center"
                 android:textColor="@color/button"
                 android:textAppearance="?android:attr/textAppearanceLarge" />

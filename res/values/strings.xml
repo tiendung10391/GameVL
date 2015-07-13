@@ -4,13 +4,23 @@
     <string name="app_name">Remember Now !</string>
     <string name="hello_world">Hello world!</string>
     <string name="startMenu">LÀM BÀI</string>
-    <string name="CongThucMenu">CÔNG THỨC</string>
+    <string name="MenuThachDau">THÁCH ĐẤU</string>
     <string name="CaiDatMenu">CÀI ĐẶT</string>
     <string name="DiemCao">ĐIỂM CAO</string>
     <string name="GioiThieu">GIỚI THIỆU</string>
     <string name="ChonGame">CHỌN KIỂU CHƠI</string>
-    <string name="ChonCongThuc">CHỌN CÔNG THỨC</string>
-    <string name="VietCongThuc">VIẾT CÔNG THỨC</string>
+    <string name="ChonBoDe">CHỌN BỘ ĐỀ</string>
+    <string name="TNCongThuc">TRẮC NGHIỆM CÔNG THỨC</string>
+    <string name="TNLyThuyet">TRẮC NGHIỆM LÝ THUYẾT</string>
     <string name="diemcao">ĐIỂM CAO</string>
+    <string name="dcCongThuc">CÔNG THỨC: </string>
+    <string name="dcLyThuyet">LÝ THUYẾT: </string>
+    <string name="boDe">BỘ ĐỀ</string>
+    <string name="nhacNen">NHẠC NỀN</string>
+    <string name="amThanh">ÂM THANH</string>
+    <string name="lop10">Lớp 10</string>
+    <string name="lop11">Lớp 11</string>
+    <string name="lop12">Lớp 12</string>
+    <string name="tonghop">Tổng hợp</string>
 
 </resources>

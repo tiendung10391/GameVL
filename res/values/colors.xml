@@ -8,4 +8,5 @@
     <color name="questionTrue">#426EB4</color>
     <color name="questionFalse">#B2001F</color>
     <color name="backgroundIteamMenu">#BFCAE6</color>
+    <color name="light_gray_header_color">#646663</color>
 </resources>
