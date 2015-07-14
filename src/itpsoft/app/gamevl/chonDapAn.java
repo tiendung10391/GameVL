@@ -111,17 +111,14 @@ public class chonDapAn extends Activity {
 			}
 			// random cau hoi
 			int idBoDe = pre.getInt("idDe", 0);
-			if(idBoDe == 3){
+			if (idBoDe == 3) {
 				arrQuetion = db.getAllChonCauHoi();
-			}else{
+			} else {
 				ArrayList<BoDeEntity> arrBoDe = db.getAllBoDe();
 				String MaBD = arrBoDe.get(idBoDe).getMaBoDe();
 				arrQuetion = db.getAllChonCauHoiTheoLop(MaBD);
 			}
-			
-			
-			
-			
+
 			int randomId = getIDQuestion(arrQuetion.size());
 			tvCauHoi.setText(arrQuetion.get(randomId).getCauHoi());
 
@@ -175,27 +172,34 @@ public class chonDapAn extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				mpMusic = MediaPlayer.create(getApplicationContext(), R.raw.support);
-				mpMusic.start();
-				countDownTimer.cancel();
-				countDownTimer.start();
-				getQuestion();
-				checkTroGiupX2 = false;
-				AlphaAnimation fade_out = new AlphaAnimation(1.0f, 0.0f);
-				fade_out.setDuration(500);
-				fade_out.setAnimationListener(new AnimationListener() {
-					public void onAnimationStart(Animation arg0) {
-					}
+				if (checkCloseDialogDiemCao) {
+					checkCloseDialogDiemCao = false;
+					restartTimeAndQuestion();
+					getQuestion();
+					dialogStart();
+				} else {
+					mpMusic = MediaPlayer.create(getApplicationContext(),
+							R.raw.support);
+					mpMusic.start();
+					countDownTimer.cancel();
+					countDownTimer.start();
+					getQuestion();
+					checkTroGiupX2 = false;
+					AlphaAnimation fade_out = new AlphaAnimation(1.0f, 0.0f);
+					fade_out.setDuration(500);
+					fade_out.setAnimationListener(new AnimationListener() {
+						public void onAnimationStart(Animation arg0) {
+						}
 
-					public void onAnimationRepeat(Animation arg0) {
-					}
+						public void onAnimationRepeat(Animation arg0) {
+						}
 
-					public void onAnimationEnd(Animation arg0) {
-						imvNext.setVisibility(View.GONE);
-					}
-				});
-				imvNext.startAnimation(fade_out);
-
+						public void onAnimationEnd(Animation arg0) {
+							imvNext.setVisibility(View.GONE);
+						}
+					});
+					imvNext.startAnimation(fade_out);
+				}
 			}
 		});
 
@@ -204,55 +208,62 @@ public class chonDapAn extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				mpMusic = MediaPlayer.create(getApplicationContext(), R.raw.support);
-				mpMusic.start();
-				AlphaAnimation fade_out = new AlphaAnimation(1.0f, 0.0f);
-				fade_out.setDuration(500);
-				fade_out.setAnimationListener(new AnimationListener() {
-					public void onAnimationStart(Animation arg0) {
+				if (checkCloseDialogDiemCao) {
+					checkCloseDialogDiemCao = false;
+					restartTimeAndQuestion();
+					getQuestion();
+					dialogStart();
+				} else {
+					mpMusic = MediaPlayer.create(getApplicationContext(),
+							R.raw.support);
+					mpMusic.start();
+					AlphaAnimation fade_out = new AlphaAnimation(1.0f, 0.0f);
+					fade_out.setDuration(500);
+					fade_out.setAnimationListener(new AnimationListener() {
+						public void onAnimationStart(Animation arg0) {
+						}
+
+						public void onAnimationRepeat(Animation arg0) {
+						}
+
+						public void onAnimationEnd(Animation arg0) {
+							imv50.setVisibility(View.GONE);
+						}
+					});
+					imv50.startAnimation(fade_out);
+
+					// code
+					ArrayList<Integer> arrDapAnSai = new ArrayList<Integer>();
+					for (int i = 0; i < 4; i++) {
+						if (!AnserAfterRandom.get(i).endsWith(DapAnDung)) {
+							arrDapAnSai.add(i);
+						}
 					}
 
-					public void onAnimationRepeat(Animation arg0) {
+					Collections.shuffle(arrDapAnSai);
+
+					for (int j = 0; j < 2; j++) {
+						int loai = arrDapAnSai.get(j);
+						switch (loai) {
+						case 0:
+							layoutCau1.setVisibility(View.GONE);
+							break;
+						case 1:
+							layoutCau2.setVisibility(View.GONE);
+							break;
+						case 2:
+							layoutCau3.setVisibility(View.GONE);
+							break;
+						case 3:
+							layoutCau4.setVisibility(View.GONE);
+							break;
+						default:
+							break;
+						}
 					}
 
-					public void onAnimationEnd(Animation arg0) {
-						imv50.setVisibility(View.GONE);
-					}
-				});
-				imv50.startAnimation(fade_out);
-
-				// code
-				ArrayList<Integer> arrDapAnSai = new ArrayList<Integer>();
-				for (int i = 0; i < 4; i++) {
-					if (!AnserAfterRandom.get(i).endsWith(DapAnDung)) {
-						arrDapAnSai.add(i);
-					}
+					check50 = true;
 				}
-
-				Collections.shuffle(arrDapAnSai);
-
-				for (int j = 0; j < 2; j++) {
-					int loai = arrDapAnSai.get(j);
-					switch (loai) {
-					case 0:
-						layoutCau1.setVisibility(View.GONE);
-						break;
-					case 1:
-						layoutCau2.setVisibility(View.GONE);
-						break;
-					case 2:
-						layoutCau3.setVisibility(View.GONE);
-						break;
-					case 3:
-						layoutCau4.setVisibility(View.GONE);
-						break;
-					default:
-						break;
-					}
-				}
-
-				check50 = true;
-
 			}
 		});
 
@@ -261,23 +272,32 @@ public class chonDapAn extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				mpMusic = MediaPlayer.create(getApplicationContext(), R.raw.support);
-				mpMusic.start();
-				checkTroGiupX2 = true;
-				AlphaAnimation fade_out = new AlphaAnimation(1.0f, 0.0f);
-				fade_out.setDuration(500);
-				fade_out.setAnimationListener(new AnimationListener() {
-					public void onAnimationStart(Animation arg0) {
-					}
+				if (checkCloseDialogDiemCao) {
+					checkCloseDialogDiemCao = false;
+					restartTimeAndQuestion();
+					getQuestion();
+					dialogStart();
+				} else {
+					mpMusic = MediaPlayer.create(getApplicationContext(),
+							R.raw.support);
+					mpMusic.start();
+					checkTroGiupX2 = true;
+					AlphaAnimation fade_out = new AlphaAnimation(1.0f, 0.0f);
+					fade_out.setDuration(500);
+					fade_out.setAnimationListener(new AnimationListener() {
+						public void onAnimationStart(Animation arg0) {
+						}
 
-					public void onAnimationRepeat(Animation arg0) {
-					}
+						public void onAnimationRepeat(Animation arg0) {
+						}
 
-					public void onAnimationEnd(Animation arg0) {
-						imvX2.setVisibility(View.GONE);
-					}
-				});
-				imvX2.startAnimation(fade_out);
+						public void onAnimationEnd(Animation arg0) {
+							imvX2.setVisibility(View.GONE);
+						}
+					});
+					imvX2.startAnimation(fade_out);
+				}
+
 			}
 		});
 
@@ -607,13 +627,12 @@ public class chonDapAn extends Activity {
 		int index = rand.nextInt(size);
 		return index;
 	}
-	
+
 	protected void onPause() {
 		super.onPause();
 
-		mpMusic.pause();
 		// mp.release();
-		
+
 		int volume_level = pre.getInt("VoluomnHeThong", 10);
 		amMusic.setStreamVolume(AudioManager.STREAM_MUSIC, volume_level, 0);
 	}
@@ -623,7 +642,7 @@ public class chonDapAn extends Activity {
 
 		int VolumnSound = pre.getInt("VolumnSound", 10);
 		amMusic.setStreamVolume(AudioManager.STREAM_MUSIC, VolumnSound, 0);
-		mpMusic.start();
+		// mpMusic.start();
 
 	}
 

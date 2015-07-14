@@ -26,19 +26,20 @@
             android:layout_height="@dimen/heightButton"
             android:layout_below="@+id/imageView1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp" >
+            android:layout_marginTop="25dp" >
 
             <TextView
                 android:id="@+id/tvChonCongThuc"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
                 android:text="@string/TNCongThuc"
-            android:background="@drawable/background_selector_menu"
+                android:textSize="@dimen/textSizeMenu"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/button" />
         </RelativeLayout>
-        
+
         <RelativeLayout
             android:id="@+id/relativeLayout8"
             android:layout_width="wrap_content"
@@ -51,9 +52,30 @@
                 android:id="@+id/tvVietCongThuc"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
                 android:text="@string/TNLyThuyet"
-            android:background="@drawable/background_selector_menu"
+                android:textSize="@dimen/textSizeMenu"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/button" />
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:id="@+id/relativeLayout22"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/heightButton"
+            android:layout_below="@+id/relativeLayout8"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp" >
+
+            <TextView
+                android:id="@+id/tvTongHopCT"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
+                android:gravity="center"
+                android:text="@string/TongHopCT"
+                android:textSize="@dimen/textSizeMenu"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/button" />
         </RelativeLayout>
@@ -62,17 +84,18 @@
             android:id="@+id/relativeLayout2"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/heightButton"
-            android:layout_below="@+id/relativeLayout8"
+            android:layout_below="@+id/relativeLayout22"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp" >
 
             <TextView
-                android:id="@+id/tvCongThuc"
+                android:id="@+id/tvThachDau"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
                 android:text="@string/MenuThachDau"
-            android:background="@drawable/background_selector_menu"
+                android:textSize="@dimen/textSizeMenu"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/button" />
         </RelativeLayout>
@@ -89,9 +112,10 @@
                 android:id="@+id/tvCaiDat"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
                 android:text="@string/CaiDatMenu"
-            android:background="@drawable/background_selector_menu"
+                android:textSize="@dimen/textSizeMenu"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/button" />
         </RelativeLayout>
@@ -108,9 +132,10 @@
                 android:id="@+id/tvDiemCao"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
                 android:text="@string/DiemCao"
-            android:background="@drawable/background_selector_menu"
+                android:textSize="@dimen/textSizeMenu"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/button" />
         </RelativeLayout>
@@ -126,12 +151,12 @@
                 android:id="@+id/tvGioiThieu"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="@string/GioiThieu"
-            android:background="@drawable/background_selector_menu"
+                android:background="@drawable/background_selector_menu"
                 android:gravity="center"
-                android:textColor="@color/button"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
+                android:text="@string/GioiThieu"
+                android:textSize="@dimen/textSizeMenu"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/button" />
         </RelativeLayout>
     </RelativeLayout>
 

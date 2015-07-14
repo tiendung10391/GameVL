@@ -43,8 +43,8 @@ import android.widget.ToggleButton;
 public class MainActivity extends Activity {
 	private LinearLayout m_main;
 
-	TextView tvChonCongThuc, tvVietCongThuc, tvCongThuc, tvCaiDat, tvDiemCao,
-			tvGioiThieu;
+	TextView tvChonCongThuc, tvLyThuyet, tvThachDau, tvCaiDat, tvDiemCao,
+			tvGioiThieu, tvTongHopCT;
 	private Spinner spBoDe;
 	private String preName = "my_data";
 	SharedPreferences pre;
@@ -94,15 +94,20 @@ public class MainActivity extends Activity {
 
 	public void init() {
 		tvChonCongThuc = (TextView) findViewById(R.id.tvChonCongThuc);
-		tvVietCongThuc = (TextView) findViewById(R.id.tvVietCongThuc);
-		tvCongThuc = (TextView) findViewById(R.id.tvCongThuc);
+		tvLyThuyet = (TextView) findViewById(R.id.tvVietCongThuc);
+		tvThachDau = (TextView) findViewById(R.id.tvThachDau);
 		tvDiemCao = (TextView) findViewById(R.id.tvDiemCao);
 		tvCaiDat = (TextView) findViewById(R.id.tvCaiDat);
 		tvGioiThieu = (TextView) findViewById(R.id.tvGioiThieu);
+		tvTongHopCT = (TextView) findViewById(R.id.tvTongHopCT);
 
 		pre = getSharedPreferences(preName, MODE_PRIVATE);
+		
+		
 		AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
 		int volume_level = am.getStreamVolume(AudioManager.STREAM_MUSIC);
+		
+		
 		SharedPreferences.Editor editor = pre.edit();
 		editor.putInt("VoluomnHeThong", volume_level);
 		editor.commit();
@@ -234,7 +239,7 @@ public class MainActivity extends Activity {
 			}
 		});
 
-		tvVietCongThuc.setOnClickListener(new OnClickListener() {
+		tvLyThuyet.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				// code here
@@ -264,19 +269,27 @@ public class MainActivity extends Activity {
 			}
 		});
 
+		// su kien khi nhan vao nut tong hop cong thuc
+		tvTongHopCT.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				// code vao day Tu nhe !!! day sang trang tong hop cong thuc cua em
+				
+			}
+		});
+		
 		// su kien khi nhan vao nut Cong thuc
 
-		tvCongThuc.setOnClickListener(new OnClickListener() {
+		tvThachDau.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				DatabaseHandler db = new DatabaseHandler(
-						getApplicationContext());
-				ArrayList<BoDeEntity> arrBode = db.getAllBoDe();
-
-				Toast.makeText(getApplicationContext(),
-						arrBode.get(1).getTenBoDe(), Toast.LENGTH_LONG).show();
-				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this,
+						loginFacebook.class);
+				startActivity(intent);
+				overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
 			}
 		});
