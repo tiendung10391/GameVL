@@ -21,21 +21,22 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.CompoundButton;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
-import android.widget.Spinner;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -85,6 +86,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		init();
 		playMusic();
 		readData();
@@ -280,16 +282,19 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		// su kien khi nhan vao nut Cong thuc
+		// su kien khi nhan vao nut thach dau
 
 		tvThachDau.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this,
-						loginFacebook.class);
-				startActivity(intent);
-				overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+				if(isInternetOn()){
+					Intent intent = new Intent(MainActivity.this,
+							loginFacebook.class);
+					startActivity(intent);
+					overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+				}
+				
 
 			}
 		});
@@ -570,6 +575,34 @@ public class MainActivity extends Activity {
 			}
 		});
 	}
+	
+	// kiem tra ket noi internet
+	 public final boolean isInternetOn() {
+         
+	        // get Connectivity Manager object to check connection
+	        ConnectivityManager connec =  
+	                       (ConnectivityManager)getSystemService(getBaseContext().CONNECTIVITY_SERVICE);
+	         
+	           // Check for network connections
+	            if ( connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTED ||
+	                 connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTING ||
+	                 connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTING ||
+	                 connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTED ) {
+	                
+	                // if connected with internet
+	                 
+//	                Toast.makeText(this, " Connected ", Toast.LENGTH_LONG).show();
+	                return true;
+	                 
+	            } else if ( 
+	              connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.DISCONNECTED ||
+	              connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.DISCONNECTED  ) {
+	               
+	                Toast.makeText(this, " không có kết nối internet ", Toast.LENGTH_LONG).show();
+	                return false;
+	            }
+	          return false;
+	        }
 
 	protected void onPause() {
 		super.onPause();

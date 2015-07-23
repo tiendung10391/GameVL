@@ -1,128 +1,157 @@
 package itpsoft.app.gamevl;
 
-import java.security.MessageDigest;
-import java.util.ArrayList;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Array;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.facebook.Request;
-import com.facebook.Response;
 import com.facebook.Session;
+import com.facebook.Session.StatusCallback;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
+import com.facebook.widget.LoginButton.UserInfoChangedCallback;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.provider.ContactsContract.Profile;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class loginFacebook extends Activity {
-	private UiLifecycleHelper uihelper;
-
-	void showMsg(String string) {
-		Toast.makeText(getApplicationContext(), string, Toast.LENGTH_SHORT)
-				.show();
+	private LoginButton loginBtn;
+	private UiLifecycleHelper uiHelper;
+	private ImageView imvAvataFB;
+	private String name;
+	private String url;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		
+		uiHelper = new UiLifecycleHelper(this, statusCallback);
+		uiHelper.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.main_thach_dau);
+		imvAvataFB = (ImageView)findViewById(R.id.imvAvatar);
+		loginBtn = (LoginButton)findViewById(R.id.fb_login_button);
+		loginBtn.setReadPermissions(Arrays.asList("email"));
+		loginBtn.setUserInfoChangedCallback(new UserInfoChangedCallback() {
+		
+			@Override
+			public void onUserInfoFetched(GraphUser user) {
+				// TODO Auto-generated method stub
+				if(user!= null){
+//					tvNameFB.setText(user.getId() + " - " + user.getName());
+					name = user.getName();
+					url = "https://graph.facebook.com/" + user.getId() + "/picture?type=large";
+					new getAvatar(user).execute(url);
+				}else{
+//					tvNameFB.setText("Bạn chưa đăng nhập");
+				}
+			}
+		});
 	}
+	
+	
+	
+	class getAvatar extends AsyncTask<String, Void, Void> {
+        GraphUser profile;
+        Bitmap myBitmap;
 
-	private Session.StatusCallback callback = new Session.StatusCallback() {
+        public getAvatar(GraphUser user) {
+            this.profile = user;
+        }
 
+        @Override
+        protected Void doInBackground(String... arg0) {
+
+            try {
+                URL image_value = new URL(arg0[0]);
+
+
+                HttpURLConnection conn = (HttpURLConnection) image_value.openConnection();
+
+
+                conn.setDoInput(true);
+                conn.connect();
+                InputStream input = conn.getInputStream();
+                myBitmap = BitmapFactory.decodeStream(input);
+                conn.disconnect();
+
+            } catch (Exception e) {
+                Log.e("loi", e.getMessage());
+            }
+            return null;
+        }
+        
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            Intent i = new Intent(loginFacebook.this, infoUser.class);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            myBitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+            byte[] b = baos.toByteArray();
+            i.putExtra("picture", b);
+            i.putExtra("name", name);
+            i.putExtra("urlAvatar", url);
+            
+            startActivity(i);
+            finish();
+        }
+	}
+	
+	
+	
+	private Session.StatusCallback statusCallback = new Session.StatusCallback() {
 		@Override
 		public void call(Session session, SessionState state,
 				Exception exception) {
-
-			onSessionStateChange(session, state, exception);
+			if (state.isOpened()) {
+				Log.d("MainActivity", "Facebook session opened.");
+			} else if (state.isClosed()) {
+				Log.d("MainActivity", "Facebook session closed.");
+			}
 		}
 	};
-
-	void onSessionStateChange(Session session, SessionState state,
-			Exception exception) {
-		if (state.isOpened()) {
-			Log.i("facebook", "Logged in...");
-			Request.newMeRequest(session, new Request.GraphUserCallback() {
-
-				@Override
-				public void onCompleted(GraphUser user, Response response) {
-
-					if (user != null) {
-						showMsg(user.getName());
-						showMsg(user.getProperty("email") + "");
-						showMsg(user.getProperty("gender") + "");
-						showMsg(user.getId() + "");
-					} else {
-						showMsg("its null");
-						showMsg(response.getError().getErrorMessage());
-					}
-				}
-			}).executeAsync();
-
-		} else if (state.isClosed()) {
-			Log.i("facebook", "Logged out...");
-		}
-	}
-
+	
 	@Override
-	protected void onResume() {
+	public void onResume() {
 		super.onResume();
-		uihelper.onResume();
+		uiHelper.onResume();
 	}
 
 	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		uihelper.onSaveInstanceState(outState);
-	}
-
-	@Override
-	protected void onPause() {
+	public void onPause() {
 		super.onPause();
-		uihelper.onPause();
+		uiHelper.onPause();
 	}
 
 	@Override
-	protected void onDestroy() {
+	public void onDestroy() {
 		super.onDestroy();
-		uihelper.onDestroy();
+		uiHelper.onDestroy();
 	}
 
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		uihelper.onActivityResult(requestCode, resultCode, data);
+		uiHelper.onActivityResult(requestCode, resultCode, data);
 	}
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_thach_dau);
-		uihelper = new UiLifecycleHelper(this, callback);
-		uihelper.onCreate(savedInstanceState);
-
-		ArrayList<String> permission = new ArrayList<String>();
-		permission.add("email");
-		permission.add("public_profile");
-		permission.add("user_friends");
-
-		LoginButton btn = (LoginButton) findViewById(R.id.fbbtn);
-		btn.setPublishPermissions(permission);
-
-		try {
-			PackageInfo info = getPackageManager().getPackageInfo(
-					"itpsoft.app.gamevl", PackageManager.GET_SIGNATURES);
-			for (Signature signature : info.signatures) {
-				MessageDigest md = MessageDigest.getInstance("SHA");
-				md.update(signature.toByteArray());
-				Log.d("KeyHash:",
-						Base64.encodeToString(md.digest(), Base64.DEFAULT));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+	public void onSaveInstanceState(Bundle savedState) {
+		super.onSaveInstanceState(savedState);
+		uiHelper.onSaveInstanceState(savedState);
 	}
-
 }
